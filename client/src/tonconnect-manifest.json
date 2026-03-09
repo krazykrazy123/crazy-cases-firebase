@@ -1,0 +1,7 @@
+{
+  "url": "http://localhost:5173",
+  "name": "Crazy Cases PVP",
+  "iconUrl": "/src/assets/logo.png",  // change to your real icon path
+  "termsOfUseUrl": "https://your-site.com/terms",
+  "privacyPolicyUrl": "https://your-site.com/privacy"
+}

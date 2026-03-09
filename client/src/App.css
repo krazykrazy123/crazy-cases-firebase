@@ -1,0 +1,345 @@
+/* src/App.css - cleaned, no duplicates, all features preserved */
+
+/* === Original styles (unchanged) === */
+.progress-gradient {
+  background: linear-gradient(to right, #90ef89, #d692dd, #726edd);
+}
+
+.top-glow {
+  box-shadow: 0 -26px 20px rgba(243, 186, 47, 0.3);
+}
+
+/* Blinking dot */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  animation: blink 1s infinite;
+}
+
+/* Marquee & scroll */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee 30s linear infinite;
+  animation-delay: -15s;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+/* Circle gradients */
+.circle-outer {
+  background: linear-gradient(to bottom, #575def, #202731);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  height: 90vw;
+  max-width: 360px;
+  max-height: 360px;
+}
+
+.circle-inner {
+  background: radial-gradient(circle, #4960b2, #282e3e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Float animation */
+@keyframes float {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* === Free page & roulette showcase === */
+@keyframes spin-fast {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.33%); }
+}
+
+.animate-spin-fast {
+  animation: spin-fast 6s linear infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.popup-content {
+  background: rgba(30, 30, 40, 0.95);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 90%;
+  width: 500px;
+  position: relative;
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.roulette-container {
+  position: relative;
+  overflow: hidden;
+  height: 10rem;
+  background: rgba(50, 50, 60, 0.7);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.roulette-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 16px solid #10b981;
+  z-index: 10;
+}
+
+.prize-item {
+  min-width: 120px;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  background: rgba(75, 85, 99, 0.8);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s;
+}
+
+.prize-item:hover {
+  transform: scale(1.1);
+}
+
+.prize-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .popup-content { padding: 1.5rem; }
+  .roulette-container { height: 8rem; }
+  .prize-item { min-width: 100px; height: 7rem; }
+  .prize-icon { font-size: 3.5rem; }
+}
+
+/* === Crash page styles === */
+.bg-gray-900\/60 {
+  background: rgba(17, 17, 27, 0.6);
+}
+
+.border-purple-600\/40 {
+  border-color: rgba(147, 51, 234, 0.4);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flex.items-center {
+  display: flex;
+  align-items: center;
+}
+
+.w-1/2 {
+  width: 50%;
+}
+
+.bg-green-600 {
+  background-color: #16a34a;
+}
+
+.bg-green-700\/70 {
+  background-color: rgba(22, 163, 74, 0.7);
+}
+
+.bg-green-600\/80 {
+  background-color: rgba(22, 163, 74, 0.8);
+}
+
+/* Crash toast */
+.animate-fadeInOut {
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* === Upgrade page styles === */
+.bg-gradient-to-r.from-green-500.to-green-700 {
+  background: linear-gradient(to right, #22c55e, #15803d);
+}
+
+.bg-gradient-to-r.from-red-600.to-red-800 {
+  background: linear-gradient(to right, #dc2626, #991b1b);
+}
+
+.border-purple-600\/50 {
+  border-color: rgba(147, 51, 234, 0.5);
+}
+
+.border-purple-600\/60 {
+  border-color: rgba(147, 51, 234, 0.6);
+}
+
+.border-b-yellow-400 {
+  border-bottom-color: #fbbf24;
+}
+
+.border-b-white {
+  border-bottom-color: white;
+}
+
+/* Upgrade wheel - circular */
+.rounded-full.overflow-hidden {
+  border-radius: 50%;
+}
+
+/* Arrow orbiting wheel edge - small & clean */
+.border-b-white {
+  border-bottom-color: white;
+}
+
+/* Ultra-smooth arrow rotation */
+.transition-transform.duration-\[0\.05s\].ease-out {
+  transition: transform 0.05s ease-out;
+}
+
+/* Win modal */
+.bg-gradient-to-b.from-gray-900.to-black {
+  background: linear-gradient(to bottom, #111827, #000000);
+}
+
+.border-green-500\/60 {
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+/* Result bounce */
+.animate-bounce {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Toast */
+.animate-fadeInOut {
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Slide up animation for popups */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Fast-to-slow marquee for spin (fast start → dramatic slow stop) */
+@keyframes fast-to-slow-marquee {
+  0%   { transform: translateX(0); animation-timing-function: linear; }
+  20%  { transform: translateX(-20%); animation-timing-function: ease-out; }
+  50%  { transform: translateX(-60%); animation-timing-function: ease-out; }
+  80%  { transform: translateX(-90%); animation-timing-function: ease-out; }
+  100% { transform: translateX(-100%); animation-timing-function: ease-out; }
+}
+
+.fast-to-slow-marquee {
+  animation: fast-to-slow-marquee 6s forwards;
+}
+
+/* Slow continuous marquee (for visual effect when not spinning) */
+@keyframes slow-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-slow-marquee {
+  animation: slow-marquee 60s linear infinite;
+}
+
+/* Prevent Telegram pull-to-close / overscroll bounce on scrollable pages */
+html, body, #root {
+  overscroll-behavior-y: contain !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling on iOS */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Apply to long scrollable areas (Leaderboard table, Tasks list, Profile content, etc.) */
+.scroll-safe {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}

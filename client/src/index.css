@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: sans-serif;
+}
+/* Slide up animation for cases popup */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Fast start → dramatic slow → sudden stop (to the right) */
+@keyframes fast-to-slow-marquee {
+  0%   { transform: translateX(0); animation-timing-function: linear; }
+  20%  { transform: translateX(30%); animation-timing-function: ease-out; }
+  50%  { transform: translateX(70%); animation-timing-function: ease-out; }
+  85%  { transform: translateX(95%); animation-timing-function: ease-out; }
+  100% { transform: translateX(100%); animation-timing-function: ease-out; }
+}
+
+.animate-fast-to-slow-marquee {
+  animation: fast-to-slow-marquee 6.5s forwards;
+}
+
+/* Slow idle scroll to the right */
+@keyframes slow-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+.animate-slow-marquee {
+  animation: slow-marquee 50s linear infinite;
+}
+
+/* Pop-in for win popup */
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+/* Faster loading for custom images */
+img[src*=".png"] {
+  loading: eager;
+  fetch-priority: high;
+}
+
+/* Smoother shadow behind spin gifts */
+.spin-gift img {
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Professional arrow */
+.arrow {
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+}
+
+/* Reduced spacing for case tiles */
+.case-tile h3 {
+  margin-bottom: 2px; /* Almost no space */
+}
+
+.case-tile p {
+  margin-top: 2px; /* Very close to image */
+}
+
+/* In your global CSS or component */
+.long-content {
+  overscroll-behavior-y: contain;     /* prevents pull-to-close */
+  -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
+}
+
+header img {
+  max-height: 48px; /* h-12 = 48px */
+  width: auto;
+}
